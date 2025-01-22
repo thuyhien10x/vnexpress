@@ -8,9 +8,11 @@
         <p class="text-lg text-gray-700 leading-relaxed">{{ $post->description }}</p>
 
         @if($post->image_path)
-            <div class="post-image mt-6 flex justify-center">
+            <div class="post-image mt-6 flex justify-center mb-6">
                 <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}" class="w-8/10 h-auto rounded-lg shadow-md mx-auto">
             </div>
         @endif
+        <p class="text-lg text-gray-700 leading-relaxed">{{ $post->content }}</p>
+
     </div>
 </x-layout>

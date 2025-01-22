@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('image_path')->nullable(); // Thêm cột để lưu đường dẫn ảnh, cho phép giá trị null
-
+            $table->string('image_path')->nullable(); 
+            $table->text('content'); 
             $table->timestamps();
             $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tag');

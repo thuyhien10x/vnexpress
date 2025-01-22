@@ -15,4 +15,14 @@ class PostController extends Controller
        
 
     }
+    public function index()
+    {
+        // Lấy tất cả bài viết từ cơ sở dữ liệu
+        $posts = Post::all();
+
+        // Truyền danh sách bài viết vào view
+        return view('home', compact('posts'));
+    }
 }
+
+

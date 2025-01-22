@@ -5,9 +5,9 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
 
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', [PostController::class, 'index'])->name('home');
+
 
 Route::get('/tags/{tagId}', [TagController::class, 'show'])->name('tags.show');
 

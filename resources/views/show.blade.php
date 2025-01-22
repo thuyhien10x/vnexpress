@@ -15,11 +15,11 @@
                                 class="w-full h-full object-cover rounded-md">
                         </div>
                     @endif
-
                     <div class="flex-1">
-                        <a href="{{ url('/posts/' . $post->id) }}" class="text-xl font-semibold text-black-500 hover:text-blue-500">
+                        <a href="{{ url('/posts/' . $post->id) }}" class="text-xl font-semibold text-black-500 hover:text-blue-500 block mb-2">
                             {{ $post->title }}
                         </a>
+                        <p class="text-lg text-gray-700 leading-relaxed">{{ $post->description }}</p>
                     </div>
                 </li>
             @endforeach

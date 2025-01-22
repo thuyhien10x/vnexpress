@@ -9,7 +9,7 @@
 <body class="h-full">
   
 <div class="min-h-full">
-  <nav class="bg-gray-800">
+  <nav class="bg-white">
     <div class="mx-auto  px-4 sm:px-6 ">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
@@ -23,13 +23,19 @@
               <x-nav-link href="/">
                                   Home
               </x-nav-link>
+              <x-nav-link href="/dashboard">
+                Dashboard
+              </x-nav-link>
+              <x-nav-link href="/profile">
+                Profile
+              </x-nav-link>
               {{-- @dd($tagData); --}}
              <!-- layout.blade.php -->
-@foreach($tagData as $tag)
-<x-nav-link href="{{ route('tags.show', ['tagId' => $tag->id]) }}">
-    {{ $tag->name }}
-</x-nav-link>
-@endforeach
+                  @foreach($tagData as $tag)
+                  <x-nav-link href="{{ route('tags.show', ['tagId' => $tag->id]) }}">
+                      {{ $tag->name }}
+                  </x-nav-link>
+                  @endforeach
 
             
             </div>
@@ -105,7 +111,7 @@
     </div>
   </nav>
 
-  <header class="bg-white shadow">
+  <header class="bg-gray-100">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
     </div>

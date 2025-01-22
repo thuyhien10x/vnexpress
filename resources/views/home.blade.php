@@ -8,7 +8,7 @@
   @else
       <ul>
           @foreach($posts as $post)
-              <li class="mb-4 flex items-center space-x-4">
+              <li class="mb-4 flex space-x-4">
                   @if($post->image_path)
                       <div class="w-32 h-32">
                           <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}"

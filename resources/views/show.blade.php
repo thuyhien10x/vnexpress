@@ -1,0 +1,28 @@
+<x-layout>
+    <x-slot:heading>
+        <h1>Bài viết có chủ đề: {{ $tag->name }}</h1>
+    </x-slot:heading>
+
+    @if($posts->isEmpty())
+        <p>Không có bài viết nào.</p>
+    @else
+        <ul>
+            @foreach($posts as $post)
+                <li class="mb-4 flex items-center space-x-4">
+                    @if($post->image_path)
+                        <div class="w-32 h-32">
+                            <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}"
+                                class="w-full h-full object-cover rounded-md">
+                        </div>
+                    @endif
+
+                    <div class="flex-1">
+                        <a href="{{ url('/posts/' . $post->id) }}" class="text-xl font-semibold text-black-500 hover:text-blue-500">
+                            {{ $post->title }}
+                        </a>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+    @endif
+</x-layout>

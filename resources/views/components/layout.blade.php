@@ -80,6 +80,9 @@
                         {{ $tag->name }}
                     </x-nav-link>
                     @endforeach
+                    <x-nav-link href="/posts-list">
+                                    Manage Posts
+</x-nav-link>
                     <div class="hidden sm:flex sm:items-center sm:ms-6">
                      
                   </div>

@@ -13,6 +13,8 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 
 Route::get('/', [PostController::class, 'index'])->name('dashboard');
 
+Route::resource('posts', PostController::class);
+
 
 Route::get('/tags/{tagId}', [TagController::class, 'show'])->name('tags.show');
 
@@ -29,5 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/posts-list', [PostController::class, 'list'])->name('posts.list');
 
 require __DIR__.'/auth.php';

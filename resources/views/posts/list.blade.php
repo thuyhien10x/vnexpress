@@ -3,24 +3,32 @@
         <h1 class="text-3xl font-bold text-center text-gray-800">Danh sách bài viết</h1>
     </x-slot:heading>
 
-    <div class="max-w-4xl mx-auto mt-6">
+    <div class="max-w-4xl mx-auto">
         <a href="{{ route('posts.create') }}" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
             Tạo bài viết
         </a>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             @foreach($posts as $post)
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden p-4">
-                    <h2 class="text-xl font-semibold text-gray-900">{{ $post->title }}</h2>
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden p-4 flex flex-col h-[400px]">
+                    <!-- Tiêu đề có chiều cao cố định -->
+                    <h2 class="text-xl font-semibold text-gray-900 h-20 overflow-hidden">
+                        {{ $post->title }}
+                    </h2>
 
+                    <!-- Hình ảnh có chiều cao cố định -->
                     <div class="mt-2">
-                        <img src="{{ asset($post->image_path) }}" alt="Post Image" class="w-full h-48 object-cover rounded-lg">
+                        <img src="{{ asset($post->image_path) }}" alt="Post Image" class="w-full h-40 object-cover rounded-lg">
                     </div>
 
-                    <p class="text-gray-700 mt-2">{{ $post->description }}</p>
+                    <!-- Mô tả có chiều cao cố định -->
+                    <p class="text-gray-700 mt-2 h-40 overflow-hidden">
+                        {{ $post->description }}
+                    </p>
 
-                    <div class="mt-4 flex justify-between items-center">
-                        <div>
+                    <!-- Khu vực nút bấm căn xuống đáy -->
+                    <div class="mt-auto flex justify-between items-center pt-4">
+                        <div class="flex space-x-2">
                             <a href="{{ route('posts.show', $post->id) }}" 
                                 class="px-3 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600">
                                 Xem

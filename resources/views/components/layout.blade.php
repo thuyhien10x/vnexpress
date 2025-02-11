@@ -85,6 +85,9 @@
                 <x-nav-link href="/posts-list">
                   Quản lý bài viêt
                 </x-nav-link>
+                <x-nav-link href="/tags-list">
+                  Quản lý danh mục
+                </x-nav-link>
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
 
                 </div>

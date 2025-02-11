@@ -33,5 +33,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/posts-list', [PostController::class, 'list'])->name('posts.list');
+Route::get('/tags-list', [TagController::class, 'index'])->name('tags.list');
+Route::resource('tags', TagController::class)->parameters(['tags' => 'tagId']);
+Route::post('/tag', [TagController::class, 'store'])->name('tag.store');
 
 require __DIR__.'/auth.php';

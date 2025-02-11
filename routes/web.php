@@ -22,9 +22,9 @@ Route::get('/tags/{tagId}', [TagController::class, 'show'])->name('tags.show');
 Route::get('/posts/{postId}', [PostController::class, 'show'])->name('posts.show');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('home');
+Route::get('/dashboard', [PostController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

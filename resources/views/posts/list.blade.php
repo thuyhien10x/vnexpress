@@ -11,22 +11,18 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             @foreach($posts as $post)
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden p-4 flex flex-col h-[400px]">
-                    <!-- Tiêu đề có chiều cao cố định -->
                     <h2 class="text-xl font-semibold text-gray-900 h-20 overflow-hidden">
                         {{ $post->title }}
                     </h2>
 
-                    <!-- Hình ảnh có chiều cao cố định -->
                     <div class="mt-2">
                         <img src="{{ asset($post->image_path) }}" alt="Post Image" class="w-full h-40 object-cover rounded-lg">
                     </div>
 
-                    <!-- Mô tả có chiều cao cố định -->
                     <p class="text-gray-700 mt-2 h-40 overflow-hidden">
                         {{ $post->description }}
                     </p>
 
-                    <!-- Khu vực nút bấm căn xuống đáy -->
                     <div class="mt-auto flex justify-between items-center pt-4">
                         <div class="flex space-x-2">
                             <a href="{{ route('posts.show', $post->id) }}" 

@@ -1,22 +1,27 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 use App\Models\Tag;
 use App\Models\Post;
 
 
-class TagController extends Controller {
+class TagController extends Controller
+{
 
     public function show($tagId)
     {
         $tag = Tag::find($tagId);
-        $posts = Post::where('tag_id',$tagId)->get();
-        return view('show',compact('tag','posts'));
+        $posts = Post::where('tag_id', $tagId)->get();
+        return view('show', compact('tag', 'posts'));
     }
+
     public function create()
     {
-        return view('tags.create');
+        $tags = Tag::all();
+        return view('tags.create', compact('tags'));
     }
 
     public function store(Request $request)
@@ -48,11 +53,10 @@ class TagController extends Controller {
 
         return redirect()->route('tags.index')->with('success', 'Tag đã được cập nhật!');
     }
-  
-    public function index()
-{
-    $tags = Tag::all();
-    return view('tags.index', compact('tags'));
-}
 
+    public function index()
+    {
+        $tags = Tag::all();
+        return view('tags.index', compact('tags'));
+    }
 }

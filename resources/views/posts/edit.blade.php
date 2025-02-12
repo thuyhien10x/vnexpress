@@ -33,9 +33,13 @@
             </div>
 
             <div>
-                <label class="block text-gray-700 font-semibold">Tag ID</label>
-                <input type="number" name="tag_id" value="{{ $post->tag_id }}" required
-                    class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                <label class="block text-gray-700 font-semibold">Danh muc</label>
+                <select name="tag_id" required class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                        <option value=""> Chọn danh mục </option>
+                        @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
             </div>
 
             <div class="flex justify-end">

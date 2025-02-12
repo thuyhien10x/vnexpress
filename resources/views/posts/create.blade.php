@@ -4,8 +4,8 @@
     </x-slot:heading>
 
     <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6 mt-6">
-        <form action="{{ route('posts.store') }}" method="POST" class="space-y-4">
-            @csrf
+    <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+    @csrf
 
             <div>
                 <label class="block text-gray-700 font-semibold">Tiêu đề</label>
@@ -21,7 +21,7 @@
 
             <div>
                 <label class="block text-gray-700 font-semibold">Hình ảnh</label>
-                <input type="text" name="image_path" placeholder="URL hình ảnh" required
+                <input type="file" name="image" accept="image/*" required
                     class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
             </div>
 
@@ -32,9 +32,16 @@
             </div>
 
             <div>
-                <label class="block text-gray-700 font-semibold">ID của Tag</label>
-                <input type="number" name="tag_id" placeholder="ID của Tag" required
-                    class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                <label class="block text-gray-700 font-semibold">Danh mục</label>
+                <div>
+                    <select name="tag_id" required class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                        <option value=""> Chọn danh mục </option>
+                        @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
 
             <div class="flex justify-end">
@@ -43,4 +50,5 @@
             </div>
         </form>
     </div>
+
 </x-layout>

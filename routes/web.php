@@ -5,6 +5,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\UploadController;
 
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
@@ -36,5 +37,15 @@ Route::get('/posts-list', [PostController::class, 'list'])->name('posts.list');
 Route::get('/tags-list', [TagController::class, 'index'])->name('tags.list');
 Route::resource('tags', TagController::class)->parameters(['tags' => 'tagId']);
 Route::post('/tag', [TagController::class, 'store'])->name('tag.store');
+Route::get('/upload', function () {
+    return view('upload');
+});
 
-require __DIR__.'/auth.php';
+Route::get('/upload', function () {
+    return view('upload');
+});
+
+Route::post('/upload', [UploadController::class, 'store'])->name('upload.store');
+
+
+require __DIR__ . '/auth.php';

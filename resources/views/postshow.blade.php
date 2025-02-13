@@ -1,9 +1,9 @@
-<x-layout>
+<x-layout >
     <x-slot:heading>
-        {{-- <h1 class="text-4xl font-bold text-center text-gray-800">{{ $post->title }}</h1> --}}
+        {{-- <h1 class=" text-4xl font-bold text-center text-gray-800">{{ $post->title }}</h1> --}}
     </x-slot:heading>
 
-    <div class="post-content mt-8 p-4">
+    <div class="post-content  mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
         <h1 class="text-4xl font-bold  text-gray-800 mb-5">{{ $post->title }}</h1>
 
         <h3 class="text-gray-800 mb-2"> {{ $tag->name }}</h3>

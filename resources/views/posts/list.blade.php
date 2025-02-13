@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin-layout>
     <x-slot:heading>
         <h1 class="text-2xl font-bold text-gray-800">Danh sách bài viết</h1>
     </x-slot:heading>
@@ -16,7 +16,7 @@
                 </h2>
 
                 <div class="mt-2">
-                    <img src="{{ Storage::url($post->image_path) }}" alt="Post Image" class="w-full h-40 object-cover rounded-lg">
+                    <img src="{{ asset($post->image_path) }}" class="w-full h-40 object-cover rounded-lg" alt="{{ $post->title }}">
                 </div>
 
                 <p class="text-gray-700 mt-2 h-40 overflow-hidden">
@@ -46,4 +46,4 @@
             @endforeach
         </div>
     </div>
-</x-layout>
+</x-admin-layout>

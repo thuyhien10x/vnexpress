@@ -27,6 +27,8 @@ Route::get('/dashboard', [PostController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -47,5 +49,7 @@ Route::get('/upload', function () {
 
 Route::post('/upload', [UploadController::class, 'store'])->name('upload.store');
 
-
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware(['auth', 'verified'])->name('admin');
 require __DIR__ . '/auth.php';

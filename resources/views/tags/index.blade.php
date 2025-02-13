@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin-layout>
     <x-slot:heading>
         <h1 class="text-2xl font-bold text-gray-800">Danh sách danh mục</h1>
     </x-slot:heading>
@@ -43,4 +43,4 @@
             @endforeach
         </ul>
     @endif
-</x-layout>
+</x-admin-layout>

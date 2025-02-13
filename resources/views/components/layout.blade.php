@@ -71,23 +71,20 @@
           <div class="flex items-center">
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-
                 <x-nav-link href="/">
                   Trang chủ
                 </x-nav-link>
-
                 @foreach($tagData as $tag)
                 <x-nav-link href="{{ route('tags.show', ['tagId' => $tag->id]) }}">
                   {{ $tag->name }}
                 </x-nav-link>
                 @endforeach
-                <x-nav-link href="/posts-list">
+                <!-- <x-nav-link href="/posts-list">
                   Quản lý bài viêt
                 </x-nav-link>
                 <x-nav-link href="/tags-list">
                   Quản lý danh mục
-                </x-nav-link>
+                </x-nav-link> -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
 
                 </div>

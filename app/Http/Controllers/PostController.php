@@ -48,11 +48,11 @@ class PostController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            'image_path' => $path ?? null, // Nếu không có ảnh, đặt null
+            'image_path' => $path ?? null, 
             'tag_id' => $request->tag_id
         ]);
     
-        return redirect()->route('posts.index')->with('success', 'Bài viết đã được tạo');
+        return redirect()->route('posts.list')->with('success', 'Bài viết đã được tạo');
     }
     
 
@@ -72,15 +72,15 @@ class PostController extends Controller
             'tag_id' => 'required|exists:tag,id'
         ]);
         $post->update($request->all());
-        return redirect()->route('posts.index')->with('success', 'Bai viet da duoc cap nhat');
+        return redirect()->route('posts.list')->with('success', 'Bai viet da duoc cap nhat');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('posts.index')->with('success', 'Bài viết đã bị xóa.');
+        return redirect()->route('posts.list')->with('success', 'Bài viết đã bị xóa.');
     }
-
+    
     public function list()
 {
     $posts = Post::all();

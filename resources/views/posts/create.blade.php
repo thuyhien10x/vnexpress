@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin-layout>
     <x-slot:heading>
         <h1 class="text-3xl font-bold text-center text-gray-800">Tạo bài viết</h1>
     </x-slot:heading>
@@ -51,4 +51,4 @@
         </form>
     </div>
 
-</x-layout>
+</x-admin-layout>

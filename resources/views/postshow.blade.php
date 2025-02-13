@@ -14,7 +14,7 @@
                 <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}" class="w-8/10 h-auto rounded-lg shadow-md mx-auto">
             </div>
         @endif
-        <p class="text-lg text-gray-700 leading-relaxed">{{ $post->content }}</p>
+        <p class="text-lg text-gray-700 leading-relaxed">{!! nl2br(e($post->content)) !!}</p>
 
     </div>
 </x-layout>
